@@ -2,12 +2,10 @@ int buzzer = 8;
 int led1 = 9;
 int led2 = 10;
 int led3 = 11;
-int sensor = A0;
 int moisture;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(sensor, 0);
   pinMode(led1, 1);
   pinMode(led2, 1);
   pinMode(led3, 1);

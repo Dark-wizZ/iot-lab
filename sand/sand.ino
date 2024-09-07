@@ -1,9 +1,10 @@
 
 void setup() {
   Serial.begin(9600);
-  pinMode(2, 0);
+  pinMode(8, 0);
 }
 
 void loop() {
-  Serial.println(digitalRead(2));
+  Serial.println(digitalRead(8));
+  delay(1000);
 }
