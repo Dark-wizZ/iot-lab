@@ -1,9 +1,9 @@
 // INPUT = 0; OUTPUT = 1; LOW = 0; HIGH = 1;
 int echoPin = 3;
 int trigPin = 2;
-int buzzer = 8;
-int led1 = 13;
-int led2 = 12;
+int buzzer = 4;
+int led1 = 5;
+int led2 = 6;
 float distance;
 void setup() {
   pinMode(trigPin, 1);

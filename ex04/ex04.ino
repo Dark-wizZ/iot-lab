@@ -16,7 +16,7 @@ void setup() {
 
 void loop() {
   int val = analogRead(A0);
-  moisture = (100 - ((val/1023.0)*100));
+  moisture = map(val, 0, 1023, 100, 0);
   digitalWrite(led1, 0);
   digitalWrite(led2, 0);
   digitalWrite(led3, 0);
