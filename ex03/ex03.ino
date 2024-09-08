@@ -8,7 +8,7 @@ float distance;
 void setup() {
   pinMode(trigPin, 1);
   pinMode(echoPin, 0);
-  Serial.begin(115200);
+  Serial.begin(9600);
   pinMode(buzzer, 1);
   pinMode(led1, 1);
   pinMode(led2, 1);
