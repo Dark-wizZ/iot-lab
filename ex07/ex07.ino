@@ -13,8 +13,11 @@ void setup() {
 void loop() {
   int c=0;
   for(int i=0; i<2; i++)
-    for(int j=0; j<2; j++)
+    for(int j=0; j<2; j++){
+      digitalWrite(s[2], i);
+      digitalWrite(s[3], j);
       color[c++] = pulseIn(out, LOW);
+    }
   Serial.println("Red: "+String(color[0])+"\tBlue: "+
   String(color[1]) +"\tGreen: "+String(color[2]));
   delay(2000);

@@ -17,8 +17,6 @@ void setup() {
 
 
 void loop() {
-  digitalWrite(trigPin, 0);
-  delayMicroseconds(2);
   digitalWrite(trigPin, 1);
   delayMicroseconds(10);
   digitalWrite(trigPin, 0);
