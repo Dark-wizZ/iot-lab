@@ -1,16 +1,16 @@
-int led = 2;
-int threshold = 600;
+int led = 3;
+int threshold = 900;
 void setup() {
   Serial.begin(9600);
-  pinMode(led, 1);
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
   int val = analogRead(A0);
   Serial.println(val);
-  if(val>threshold)
-    digitalWrite(led, 1);
-  else:
-    digitalWrite(led, 0);
+  if(val>800)
+    digitalWrite(led, HIGH);
+  else
+    digitalWrite(led, LOW);
   delay(500);
 }

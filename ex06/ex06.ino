@@ -5,8 +5,8 @@ int leds[] = {4,5,6};
 void setup() {
   Serial.begin(9600);
   for(int i=0; i<3; i++)
-    pinMode(leds[i], 1);
-  pinMode(buzzer, 1);
+    pinMode(leds[i], OUTPUT);
+  pinMode(buzzer, OUTPUT);
   dht.begin();
   Serial.println("Temperature and Humidity program");
 }
@@ -14,15 +14,15 @@ void setup() {
 void loop() {
   delay(2000);
   for(int i=0; i<3; i++)
-    digitalWrite(leds[i], 0);
-  digitalWrite(buzzer, 0);
+    digitalWrite(leds[i], LOW);
+  digitalWrite(buzzer, LOW);
   float h = dht.readHumidity();
   float c = dht.readTemperature();
   float f = dht.readTemperature(true);
 
   if (isnan(h) || isnan(c) || isnan(f)){
     Serial.println("Failed to read the sensor");
-    digitalWrite(leds[0], 1);
+    digitalWrite(leds[0], HIGH);
     return;
   }
   float hif = dht.computeHeatIndex(f, h);
@@ -31,11 +31,11 @@ void loop() {
   Serial.println("Humidity: "+String(h)+"% Temperature: "+String(c)+"C ");
   Serial.println(String(f)+"F Heat Index: "+String(hic)+"C "+String(hif)+"F");
   if(c > 30){
-    digitalWrite(leds[1], 1);
+    digitalWrite(leds[1], HIGH);
     Serial.println("Alert: High Temperature!");
-    digitalWrite(buzzer, 1);
+    digitalWrite(buzzer, HIGH);
   }else{
-    digitalWrite(leds[2], 1);
+    digitalWrite(leds[2], HIGH);
     Serial.println("Alert: Low Temperature!");
   }
 }

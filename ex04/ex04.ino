@@ -1,35 +1,31 @@
 int buzzer = 8;
-int led1 = 9;
-int led2 = 10;
-int led3 = 11;
+int leds[] = {9, 10, 11};
 int moisture;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(led1, 1);
-  pinMode(led2, 1);
-  pinMode(led3, 1);
+  for(int i=0; i<3; i++)
+    pinMode(leds[i], OUTPUT);
   Serial.println("Soil Moisture Program");
 }
 
 void loop() {
   int val = analogRead(A0);
   moisture = map(val, 0, 1023, 100, 0);
-  digitalWrite(led1, 0);
-  digitalWrite(led2, 0);
-  digitalWrite(led3, 0);
-  digitalWrite(buzzer, 0);
+  for (int i=0; i<3; i++)
+    digitalWrite(leds[i], LOW);
+  digitalWrite(buzzer, LOW);
   Serial.println("******************************");
   Serial.println("Moisture: "+String(moisture)+"%");
   if(moisture > 60){
-    digitalWrite(led1, 1);
+    digitalWrite(leds[0], HIGH);
     Serial.println("Water Soil");
   }else if(moisture > 40){
-    digitalWrite(led2, 1);
+    digitalWrite(leds[1], HIGH);
     Serial.println("Humid Soil");
   }else if(moisture > 2){
-    digitalWrite(led3, 1);
-    digitalWrite(buzzer, 1);
+    digitalWrite(leds[3], HIGH);
+    digitalWrite(buzzer, HIGH);
     Serial.println("Dry Soil");
   }else{
     Serial.println("Disconnected");

@@ -4,10 +4,10 @@ int color[4]; //red, blue, clear, green
 void setup() {
   Serial.begin(9600);
   for(int i=0; i<4; i++)
-    pinMode(s[i], 1);
-    pinMode(out, 0);
-    digitalWrite(s[0], 1);
-    digitalWrite(s[1], 1);
+    pinMode(s[i], OUTPUT);
+    pinMode(out, INPUT);
+    digitalWrite(s[0], HIGH);
+    digitalWrite(s[1], HIGH);
 }
 
 void loop() {

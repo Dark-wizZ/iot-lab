@@ -5,21 +5,21 @@ int state = 0;
 int val = 0;
 void setup() {
   Serial.begin(9600);
-  pinMode(led, 1);
-  pinMode(buzzer, 1);
-  pinMode(sensor, 0);
+  pinMode(led, OUTPUT);
+  pinMode(buzzer, OUTPUT);
+  pinMode(sensor, INPUT);
   Serial.println("Motion Detection");
 }
 
 void loop() {
   val = digitalRead(sensor);
-  digitalWrite(buzzer, 0);
-  digitalWrite(led, 0);
+  digitalWrite(buzzer, LOW);
+  digitalWrite(led, LOW);
   if (val){
-    digitalWrite(led, 1);
+    digitalWrite(led, HIGH);
     if(!state){
       Serial.println("Motion Detected!");
-      digitalWrite(buzzer, 1);
+      digitalWrite(buzzer, HIGH);
       state = 1;
     }
   }else{
