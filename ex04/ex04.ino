@@ -24,7 +24,7 @@ void loop() {
     digitalWrite(leds[1], HIGH);
     Serial.println("Humid Soil");
   }else if(moisture > 2){
-    digitalWrite(leds[3], HIGH);
+    digitalWrite(leds[2], HIGH);
     digitalWrite(buzzer, HIGH);
     Serial.println("Dry Soil");
   }else{
